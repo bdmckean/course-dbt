@@ -1,33 +1,37 @@
 How many users do we have?
 
+```
 select count(*) from _stg_postgres_users;
+```
 
 130
 
 On average, how many orders do we receive per hour?
-
+```
 select
     (count(distinct(order_id)) / datediff("hours", min(created_at), max(created_at))) as per_hour_avg
 from _stg_postgres_orders;
+```
 
 7.680851
 
 
 
 On average, how long does an order take from being placed to being delivered?
-
+```
 with delivery_times as(
 select
     timediff("days", created_at, delivered_at) as order_delivery_time
     from _stg_postgres_orders
 )
 select avg(order_delivery_time) as average_delivery_time from delivery_times;
-
+```
 3.89 days
 
 
 How many users have only made one purchase? Two purchases? Three+ purchases?
 
+```
 WITH user_order_counts AS (
   SELECT 
     user_id,
@@ -59,6 +63,7 @@ ORDER BY
     WHEN '2 orders' THEN 2
     WHEN '3 or more orders' THEN 3
   END;
+  ```
 
 
 | ORDER_FREQUENCY	| USER_COUNT |
@@ -73,9 +78,10 @@ Note: you should consider a purchase to be a single order. In other words, if a 
 
 
 On average, how many unique sessions do we have per hour?
-
+```
 select
     (count(distinct(session_id)) / datediff("hours", min(created_at), max(created_at))) as per_hour_avg
 from _stg_postgres_events;
+```
 
 10.14
