@@ -67,9 +67,9 @@ ORDER BY
 
 
 | ORDER_FREQUENCY	| USER_COUNT |
-| ----------------- | __________ |
-|1 order.           | 25.        |
-|2 orders.          | 28.        |
+| :------------- | :--------: |
+|1 order           | 25        |
+|2 orders          | 28       |
 |3 or more orders   | 71         |
 
 
