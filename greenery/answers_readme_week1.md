@@ -9,12 +9,11 @@ select count(*) from _stg_postgres_users;
 On average, how many orders do we receive per hour?
 ```
 select
-    (count(distinct(order_id)) / datediff("hours", min(created_at), max(created_at))) as per_hour_avg
+    (count(distinct(order_id)) / (datediff("hours", min(created_at), max(created_at)) + 1)) as per_hour_avg
 from _stg_postgres_orders;
 ```
 
-7.680851
-
+7.520833
 
 
 On average, how long does an order take from being placed to being delivered?
@@ -80,8 +79,8 @@ Note: you should consider a purchase to be a single order. In other words, if a 
 On average, how many unique sessions do we have per hour?
 ```
 select
-    (count(distinct(session_id)) / datediff("hours", min(created_at), max(created_at))) as per_hour_avg
+    (count(distinct(session_id)) / (datediff("hours", min(created_at), max(created_at)) + 1)) as per_hour_avg
 from _stg_postgres_events;
 ```
 
-10.14
+9.965517
