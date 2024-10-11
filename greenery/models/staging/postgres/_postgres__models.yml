@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: _stg_postgres_user
+    description: Demographics about each superhero such as name, hair color, height and weight. 
