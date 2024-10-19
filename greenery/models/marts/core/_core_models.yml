@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: "customers who have used the system"
+  - name: fact_orders
+    description: "order that customer have made"

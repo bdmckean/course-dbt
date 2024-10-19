@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: _int_user_order
+    description: "order info rolled up under user"

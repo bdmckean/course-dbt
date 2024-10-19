@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: user_order_facts
+    description: "information realted to users and orders"

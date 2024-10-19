@@ -1,5 +1,39 @@
 version: 2
 
 models:
-  - name: _stg_postgres_user
-    description: Demographics about each superhero such as name, hair color, height and weight. 
+  - name: _stg_postgres_users
+    description: "Demographics about each superhero such as name, hair color, height and weight."
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+  - name: _stg_postgres_events
+    description: "Event that happens for a user within a session"
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+  - name: _stg_postgres_addresses
+    description: "User addresses"
+    columns:
+      - name: address_id
+        tests:
+          - unique
+          - not_null
+  - name: _stg_postgres_order_items
+    description: "One line item from an order"
+  - name: _stg_postgres_orders
+    description: "Orders made by a user"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+  - name: _stg_postgres_products
+    description: "Products we have to order"
+  - name: _stg_postgres_promos
+    description: "discounts"
+
+
