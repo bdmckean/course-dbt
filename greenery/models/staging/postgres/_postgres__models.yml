@@ -12,15 +12,39 @@ models:
     description: "Event that happens for a user within a session"
     columns:
       - name: event_id
+        description: "unique guid for event"
         tests:
           - unique
           - not_null
+      - name: user_id
+        description : "user associated with event"
+        tests:
+          - relationships:
+              to: ref('_stg_postgres_users')
+              field: user_id
+      - name: event_type
+        decription: "type of event during session"
+        tests:
+          - accepted_values:
+              values:
+                - page_view
+                - package_shipped
+                - add_to_cart
+                - checkout
+
   - name: _stg_postgres_addresses
     description: "User addresses"
     columns:
       - name: address_id
         tests:
           - unique
+          - not_null
+      - name: address
+      - name: zip_code
+          - not_null
+      - name: state
+          - not_null
+      - name: country
           - not_null
   - name: _stg_postgres_order_items
     description: "One line item from an order"
