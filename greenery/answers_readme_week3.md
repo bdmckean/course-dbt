@@ -6,6 +6,7 @@ select * from fact_conversion_rate;
 
 
 | Total Sessions | Sessions with Purchase | Conversion Ratio |
+| -------- | ------- | ------- |
 | 578 | 361 | 0.625 |
 
 
@@ -13,6 +14,7 @@ select * from fact_conversion_rate;
 select * from fact_product_conversion_rate;
 ```
 | Product ID | Total Sessions | Sessions with Purchase | Purchase Ratio |
+| -------- | ------- |  -------- | ------- |
 | 05df0866-1a66-41d8-9ed7-e2bbcddd6a3d | 60 | 0 | 0 |
 | 35550082-a52d-4301-8f06-05b30f6f3616 | 45 | 0 | 0 |
 | 37e0062f-bd15-4c3e-b272-558a86d90598 | 62 | 0 | 0 |
@@ -127,6 +129,7 @@ ORDER BY product_id;
 ```
 
 | Product ID | Old Name | New Name | Old Price | New Price | Old Inventory | New Inventory |
+| -------- | ------- | -------- | ------- | -------- | ------- | -------- | 
 | 4cda01b9-62e2-46c5-830f-b7f262a58fb1 | Pothos | Pothos | 30.50 | 30.50 | 40 | 20 |
 | 55c6a062-5f4a-4a8b-a8e5-05ea5e6715a3 | Philodendron | Philodendron | 45.00 | 45.00 | 51 | 25 |
 | be49171b-9f72-4fc9-bf7a-9a52e259836b | Monstera | Monstera | 50.75 | 50.75 | 77 | 64 |
