@@ -1,8 +1,4 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
+
 
 SELECT 
 user_id

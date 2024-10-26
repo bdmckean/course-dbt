@@ -1,42 +1,31 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
 
-with events as 
-(
-  select
-  *
-  from _stg_postgres_events
 
+
+
+with events as (
+  select *
+  from {{ ref('_stg_postgres_events') }}
 ),
 
-session_times as
-(
-  select * from {{ ref('_int_session_timings')}}
-
+session_times as (
+  select * 
+  from {{ ref('_int_session_timings') }}
 )
 
 SELECT 
-e.session_id
-, e.user_id
-, st.session_start as session_start_utc
-, st.session_end as session_end_utc
-, sum(case when event_type = 'page_view' then 1 else 0 end)  as page_views
-, sum(case when event_type = 'add_to_cart' then 1 else 0 end ) as add_to_cart
-, sum(case when event_type = 'checkout' then 1 else 0 end) as checkout
-, sum(case when event_type = 'package_shipped' then 1 else 0 end) as package_shipped
-, DATEDIFF('minute', st.session_end, st.session_end) as session_duration_minutes
+  e.session_id
+  , e.user_id
+  , st.session_start as session_start_utc
+  , st.session_end as session_end_utc
+  , {{ count_items('event_type', 'page_view') }} as page_views
+  , {{ count_items('event_type', 'add_to_cart') }} as add_to_cart
+  , {{ count_items('event_type', 'checkout') }} as checkout
+  , {{ count_items('event_type', 'package_shipped') }} as package_shipped
+  , DATEDIFF('minute', st.session_start, st.session_end) as session_duration_minutes  -- Fixed the DATEDIFF calculation
 from events e
 left join session_times st
-on e.session_id = st.session_id
-group by
- e.session_id
- , e.user_id
- , session_start_utc
- , session_end_utc
- , session_duration_minutes
+  on e.session_id = st.session_id
+group by 1,2,3,4
 
 
 

@@ -1,5 +1,5 @@
 version: 2
 
 models:
-  - name: user_order_facts
+  - name: fact_user_order
     description: "information realted to users and orders"

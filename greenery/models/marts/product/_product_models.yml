@@ -3,3 +3,7 @@ version: 2
 models:
   - name: fact_page_views
     description: "page views"
+  - name: fact_conversion_rate
+    description: "conversion rate over all sessions"
+  - name: fact_product_conversion_rate
+    description: "conversion rate for each product within a sesssion"

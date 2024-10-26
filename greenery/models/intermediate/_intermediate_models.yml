@@ -3,3 +3,7 @@ version: 2
 models:
   - name: _int_user_order
     description: "order info rolled up under user"
+  - name: _int_session_timings
+    description: "session start end"
+  - name: _int_session_events
+    description: "occureence of event types in sessions"
