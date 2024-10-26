@@ -53,7 +53,9 @@ Used some macros -- see macro dir
 
 ## Part 3
 ### Showing role being granted
-![alt text](image.png)
+
+![alt text](image-2.png)
+
 
 
 ## Part 4
