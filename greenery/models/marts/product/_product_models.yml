@@ -1,8 +1,10 @@
 version: 2
 
 models:
-  - name: fact_page_views
-    description: "page views"
+  - name: fact_funnel
+    description: "funnel information"
+  - name: fact_sesssion_funnel
+    descrioption: "per session funnel informaiton"
   - name: fact_conversion_rate
     description: "conversion rate over all sessions"
   - name: fact_product_conversion_rate
